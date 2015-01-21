@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <tools>
+                    <children>
+                        <speedsterAdvanced translate="title" module="speedsterAdvanced">
+                            <title>Theme Optimiser</title>
+                            <action>adminhtml/optimiser</action>
+                        </speedsterAdvanced>
+                    </children>
+                </tools>
+            </children>
+        </system>
+    </menu>
+</config>
+

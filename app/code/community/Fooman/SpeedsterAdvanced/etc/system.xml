@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <dev>
+            <groups>
+                <js>
+                    <fields>
+                        <speedster_minify_blacklist translate="label">
+                            <label>Exclude from Minify</label>
+                            <comment/>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speedster_minify_blacklist>
+                        <speedster_merge_blacklist translate="label">
+                            <label>Exclude from Merge</label>
+                            <comment/>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speedster_merge_blacklist>
+                    </fields>
+                </js>
+                <css>
+                    <fields>
+                        <speedster_minify_blacklist translate="label">
+                            <label>Exclude from Minify</label>
+                            <comment/>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speedster_minify_blacklist>
+                        <speedster_minify_blacklist_secure translate="label">
+                            <label>Exclude from Minify (SSL)</label>
+                            <comment/>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speedster_minify_blacklist_secure>
+                        <speedster_merge_blacklist translate="label">
+                            <label>Exclude from Merge</label>
+                            <comment/>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speedster_merge_blacklist>
+                    </fields>
+                </css>
+            </groups>
+        </dev>
+    </sections>
+</config>

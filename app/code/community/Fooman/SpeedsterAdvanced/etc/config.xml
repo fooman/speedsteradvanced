@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Fooman_SpeedsterAdvanced>
+            <version>0.8.10</version>
+        </Fooman_SpeedsterAdvanced>
+    </modules>
+
+    <global>
+        <models>
+            <speedsterAdvanced>
+                <class>Fooman_SpeedsterAdvanced_Model</class>
+            </speedsterAdvanced>
+            <core>
+                <rewrite>
+                    <!-- start - this rewrite can be removed if the Theme Optimiser is not in use -->
+                    <layout_update>Fooman_SpeedsterAdvanced_Model_Core_Layout_Update</layout_update>
+                    <!-- end - this rewrite can be removed if the Theme Optimiser is not in use -->
+                    <design_package>Fooman_SpeedsterAdvanced_Model_Core_Design_Package</design_package>
+                </rewrite>
+            </core>
+        </models>
+        <blocks>
+            <speedsterAdvanced>
+                <class>Fooman_SpeedsterAdvanced_Block</class>
+            </speedsterAdvanced>
+            <page>
+                <rewrite>
+                     <html_head>Fooman_SpeedsterAdvanced_Block_Page_Html_Head</html_head>
+                </rewrite>
+            </page>
+            <adminhtml>
+                <rewrite>
+                    <page_head>Fooman_SpeedsterAdvanced_Block_Adminhtml_Page_Head</page_head>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <speedsterAdvanced>
+                <class>Fooman_SpeedsterAdvanced_Helper</class>
+            </speedsterAdvanced>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <speedsterAdvanced before="Mage_Adminhtml">Fooman_SpeedsterAdvanced_Adminhtml</speedsterAdvanced>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <dev>
+            <js>
+                <speedster_minify_blacklist>js/mage/adminhtml/sales/packaging.js</speedster_minify_blacklist>
+            </js>
+            <css>
+                <speedster_minify_blacklist></speedster_minify_blacklist>
+                <speedster_minify_blacklist_secure></speedster_minify_blacklist_secure>
+            </css>
+        </dev>
+    </default>
+</config>
