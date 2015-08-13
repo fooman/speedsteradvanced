@@ -30,6 +30,7 @@ class Fooman_SpeedsterAdvanced_Model_Core_Design_Package extends Mage_Core_Model
 {
 
     protected $_speedsterBlacklists = array();
+    protected $_speedsterMergeFilesMethod = array();
 
     public function __construct()
     {
@@ -54,6 +55,11 @@ class Fooman_SpeedsterAdvanced_Model_Core_Design_Package extends Mage_Core_Model
                 $this->_speedsterBlacklists['css_secure']['minify'][$cssBlacklist] = true;
             }
         }
+        if (method_exists($this, '_mergeFiles')) {
+            $this->_speedsterMergeFilesMethod = array($this, '_mergeFiles');
+        } else {
+            $this->_speedsterMergeFilesMethod = array(Mage::helper('core'), 'mergeFiles');
+        }
     }
 
 
@@ -76,11 +82,14 @@ class Fooman_SpeedsterAdvanced_Model_Core_Design_Package extends Mage_Core_Model
         if (!$targetDir) {
             return '';
         }
-        if (Mage::helper('core')
-            ->mergeFiles(
-                $files, $targetDir . DS . $targetFilename, false, array($this, 'beforeMergeJs'), 'js'
-            )
-        ) {
+        if (call_user_func(
+            $this->_speedsterMergeFilesMethod,
+            $files,
+            $targetDir . DS . $targetFilename,
+            false,
+            array($this, 'beforeMergeJs'),
+            'js'
+        )) {
             return Mage::getBaseUrl('media') . 'js/' . $targetFilename;
         }
         return '';
@@ -145,11 +154,14 @@ class Fooman_SpeedsterAdvanced_Model_Core_Design_Package extends Mage_Core_Model
             if (file_exists(Mage::getBaseDir('media') . '/css_secure/' . $targetFilename)) {
                 return Mage::getBaseUrl('media') . 'css_secure/' . $targetFilename;
             }
-            if (Mage::helper('core')
-                ->mergeFiles(
-                    $files, $targetDir . DS . $targetFilename, false, array($this, 'beforeMergeCssSecure'), 'css'
-                )
-            ) {
+            if (call_user_func(
+                $this->_speedsterMergeFilesMethod,
+                $files,
+                $targetDir . DS . $targetFilename,
+                false,
+                array($this, 'beforeMergeCssSecure'),
+                'css'
+            )) {
                 return Mage::getBaseUrl('media') . 'css/' . $targetFilename;
             }
         } else {
@@ -157,11 +169,14 @@ class Fooman_SpeedsterAdvanced_Model_Core_Design_Package extends Mage_Core_Model
             if (file_exists(Mage::getBaseDir('media') . '/css/' . $targetFilename)) {
                 return Mage::getBaseUrl('media') . 'css/' . $targetFilename;
             }
-            if (Mage::helper('core')
-                ->mergeFiles(
-                    $files, $targetDir . DS . $targetFilename, false, array($this, 'beforeMergeCss'), 'css'
-                )
-            ) {
+            if (call_user_func(
+                $this->_speedsterMergeFilesMethod,
+                $files,
+                $targetDir . DS . $targetFilename,
+                false,
+                array($this, 'beforeMergeCss'),
+                'css'
+            )) {
                 return Mage::getBaseUrl('media') . 'css/' . $targetFilename;
             }
         }
