@@ -40,4 +40,10 @@ class Fooman_SpeedsterAdvanced_Adminhtml_OptimiserController extends Mage_Adminh
                 ->renderLayout();
         }
     }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('all');
+    }
+
 }
