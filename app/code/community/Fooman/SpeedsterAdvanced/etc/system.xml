@@ -1,6 +1,23 @@
 <?xml version="1.0"?>
 <config>
     <sections>
+        <foomancommon>
+            <groups>
+                <extensions>
+                    <fields>
+                        <speedsterAdvanced translate="label" module="speedsterAdvanced">
+                            <label>Speedster Advanced</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>speedsterAdvanced/adminhtml_extensioninfo</frontend_model>
+                            <sort_order>37</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speedsterAdvanced>
+                    </fields>
+                </extensions>
+            </groups>
+        </foomancommon>
         <dev>
             <groups>
                 <js>
