@@ -12,9 +12,9 @@
  * @copyright  Copyright (c) 2010 Fooman Limited (http://www.fooman.co.nz)
  */
 
-require_once 'minify' . DS . 'Minify' . DS . 'Javascript.php';
+require_once 'minify' . DS . 'JSMin.php';
 
-class Fooman_SpeedsterAdvanced_Model_Javascript extends Minify_Javascript
+class Fooman_SpeedsterAdvanced_Model_Javascript extends JSMin
 {
 
 }
