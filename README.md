@@ -18,7 +18,7 @@ Please note that packages.firegento.com is not always up-to-date - in this case 
     "repositories":[
       {
         "type":"composer",
-        "url":"http://packages.fooman.co.nz"
+        "url":"https://packages.fooman.co.nz"
       }
     ],
 
