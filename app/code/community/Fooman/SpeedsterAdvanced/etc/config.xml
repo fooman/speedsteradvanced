@@ -26,7 +26,7 @@
             </speedsterAdvanced>
             <page>
                 <rewrite>
-                     <html_head>Fooman_SpeedsterAdvanced_Block_Page_Html_Head</html_head>
+                    <html_head>Fooman_SpeedsterAdvanced_Block_Page_Html_Head</html_head>
                 </rewrite>
             </page>
             <adminhtml>
@@ -40,6 +40,16 @@
                 <class>Fooman_SpeedsterAdvanced_Helper</class>
             </speedsterAdvanced>
         </helpers>
+        <events>
+            <http_response_send_before>
+                <observers>
+                    <speedsterAdvanced>
+                        <class>speedsterAdvanced/observer</class>
+                        <method>httpResponseSendBefore</method>
+                    </speedsterAdvanced>
+                </observers>
+            </http_response_send_before>
+        </events>
     </global>
     <admin>
         <routers>
@@ -61,6 +71,9 @@
                 <speedster_minify_blacklist></speedster_minify_blacklist>
                 <speedster_minify_blacklist_secure></speedster_minify_blacklist_secure>
             </css>
+            <html>
+                <minify>0</minify>
+            </html>
         </dev>
     </default>
 </config>
