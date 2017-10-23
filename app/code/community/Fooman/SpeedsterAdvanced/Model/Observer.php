@@ -9,8 +9,12 @@ class Fooman_SpeedsterAdvanced_Model_Observer
             /** @var Mage_Core_Controller_Response_Http $response */
             $response = $observer->getData('response');
             $html     = $response->getBody();
-            $html     = Mage::getModel('speedsterAdvanced/html', $html)->minify($html);
-            $response->setBody($html);
+            // only minify HTML content!
+            if (!empty($html) && $html[0] !== '{'
+                && Mage::helper('speedsterAdvanced')->hasContentTypeHtmlHeader($response->getHeaders())) {
+                $html = Mage::getModel('speedsterAdvanced/html', $html)->minify($html);
+                $response->setBody($html);
+            }
         }
     }
 
