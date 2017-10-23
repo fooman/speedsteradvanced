@@ -16,4 +16,21 @@ class Fooman_SpeedsterAdvanced_Helper_Data extends Mage_Core_Helper_Abstract
         //make sure we don't start with a /
         return ltrim($url, '/');
     }
+
+    /**
+     * @param array $headers
+     *
+     * @return bool whether the given headers contain a Content-Type text/html header
+     */
+    public function hasContentTypeHtmlHeader($headers)
+    {
+        foreach ($headers as $header) {
+            if (isset($header['name'], $header['value']) && $header['name'] === 'Content-Type'
+                && strpos($header['value'], 'text/html') !== false) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
