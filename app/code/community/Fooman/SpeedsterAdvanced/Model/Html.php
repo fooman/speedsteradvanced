@@ -14,8 +14,8 @@ class Fooman_SpeedsterAdvanced_Model_Html extends Minify_HTML
 
         // keep comments, which are used by full page caching plugins for holepunching!
         // Lesti_Fpc uses the placeholder "<!-- fpc"
-        // Nexcessnet_Turpentine uses the placeholder "<!-- ESI"
-        if (0 === strpos($m[1], ' fpc') || 0 === strpos($m[1], ' ESI')) {
+        // Nexcessnet_Turpentine uses the placeholder "<!-- ESI" and "<!--esi"
+        if (0 === strpos($m[1], ' fpc') || 0 === strpos($m[1], ' ESI') || 0 === strpos($m[0], '<!--esi')) {
             return $m[0];
         }
 
