@@ -18,19 +18,27 @@ class Fooman_SpeedsterAdvanced_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Checks if the given headers only have the content type text/html.
+     * Magento sometimes sends more than one header (for instance, when loading the dashboard image). Hence, we have to
+     * make sure that text/html is the ONLY header.
+     *
      * @param array $headers
      *
      * @return bool whether the given headers contain a Content-Type text/html header
      */
-    public function hasContentTypeHtmlHeader($headers)
+    public function hasOnlyContentTypeHtmlHeader($headers)
     {
+        $result = false;
         foreach ($headers as $header) {
-            if (isset($header['name'], $header['value']) && $header['name'] === 'Content-Type'
-                && strpos($header['value'], 'text/html') !== false) {
-                return true;
+            if (isset($header['name'], $header['value']) && $header['name'] === 'Content-Type') {
+                if (strpos($header['value'], 'text/html') !== false) {
+                    $result = true;
+                } else {
+                    return false;
+                }
             }
         }
 
-        return false;
+        return $result;
     }
 }
