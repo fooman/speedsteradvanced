@@ -11,7 +11,7 @@ class Fooman_SpeedsterAdvanced_Model_Observer
             $html     = $response->getBody();
             // only minify HTML content!
             if (!empty($html) && $html[0] !== '{'
-                && Mage::helper('speedsterAdvanced')->hasContentTypeHtmlHeader($response->getHeaders())) {
+                && Mage::helper('speedsterAdvanced')->hasOnlyContentTypeHtmlHeader($response->getHeaders())) {
                 $html = Mage::getModel('speedsterAdvanced/html', $html)->minify($html);
                 $response->setBody($html);
             }
