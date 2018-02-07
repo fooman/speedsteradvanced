@@ -12,7 +12,7 @@ class Fooman_SpeedsterAdvanced_Model_Observer
             // only minify HTML content!
             if (!empty($html) && $html[0] !== '{'
                 && Mage::helper('speedsterAdvanced')->hasOnlyContentTypeHtmlHeader($response->getHeaders())) {
-                $html = Mage::getModel('speedsterAdvanced/html', $html)->minify($html);
+                $html = Mage::getModel('speedsterAdvanced/html', $html)->process();
                 $response->setBody($html);
             }
         }
